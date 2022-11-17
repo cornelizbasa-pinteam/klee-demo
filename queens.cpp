@@ -1,3 +1,5 @@
+// Check at https://www.brainmetrix.com/8-queens/
+
 #include <assert.h>
 #include <cstdlib>
 
