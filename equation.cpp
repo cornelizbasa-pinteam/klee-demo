@@ -1,7 +1,7 @@
 #ifdef KLEE
 #include <klee/klee.h>
 #endif
-#include <assert.h>
+#include <cassert>
 
 int f(int x)
 {

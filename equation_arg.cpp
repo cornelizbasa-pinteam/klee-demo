@@ -2,13 +2,13 @@
 #include <klee/klee.h>
 #endif
 #include <cstdlib>
-#include <assert.h>
+#include <cassert>
 
 int f(int x)
 {
-    // if (x > 2) {
-    //     return x - 2;
-    // }
+    if (x > 2) {
+        return x - 2;
+    }
     return x * x - 2 * x + 1;
 }
 
