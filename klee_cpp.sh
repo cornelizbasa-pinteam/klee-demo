@@ -10,7 +10,7 @@ fi
 FILE="${1}"
 
 KLEE_IMAGE="klee/klee:2.3"
-RUN="docker run -w $(pwd) --ulimit stack=2024000 -v $(pwd):$(pwd) --rm ${KLEE_IMAGE}"
+RUN="docker run -w $(pwd) --ulimit stack=-1:-1 -v $(pwd):$(pwd) --rm ${KLEE_IMAGE}"
 
 CLANG_BIN=/tmp/llvm-110-install_O_D_A/bin
 CLANGXX="${RUN} ${CLANG_BIN}/clang++"
@@ -25,7 +25,7 @@ KTEST="${RUN} ${KLEE_BIN}/ktest-tool"
 ${CLANGXX} -std=c++14 -O2 -DKLEE -g -emit-llvm -I"${KLEE_INCLUDE}" -c "${FILE}" -o "$(pwd)/${FILE%%.*}.bc"
 
 set +e
-${KLEE} --optimize --libc=uclibc --posix-runtime "$(pwd)/${FILE%%.*}.bc"
+${KLEE} -exit-on-error-type=Assert --optimize --libc=uclibc --posix-runtime "$(pwd)/${FILE%%.*}.bc"
 set -e
 
 for err in klee-last/*.err; do
