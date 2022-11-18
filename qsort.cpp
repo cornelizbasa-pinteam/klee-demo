@@ -7,7 +7,7 @@
 void swap(int* a, int* b)
 {
     int t = *a;
-    // if (*a != 'A')
+    if (*a != 'A')
     *a = *b;
     *b = t;
 }
@@ -50,20 +50,11 @@ void quickSort(int arr[], int low, int high)
     }
 }
 
-/* Function to print an array */
-void printArray(int arr[], int size)
-{
-    int i;
-    for (i = 0; i < size; i++)
-        printf("%d ", arr[i]);
-    printf("\n");
-}
-
 #ifdef KLEE
 #include <klee/klee.h>
 #endif
 
-#include <assert.h>
+#include <cassert>
 
 #include <algorithm>
 #include <iterator>
