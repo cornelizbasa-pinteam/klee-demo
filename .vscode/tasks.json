@@ -29,7 +29,8 @@
                 "*.gcda",
                 "*.gcno",
                 "*.html",
-                "*.css"
+                "*.css",
+                "equation_arg"
             ],
             "group": "build"
         }
