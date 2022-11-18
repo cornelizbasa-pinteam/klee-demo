@@ -30,6 +30,7 @@
                 "*.gcno",
                 "*.html",
                 "*.css",
+                "*.o",
                 "equation_arg"
             ],
             "group": "build"
